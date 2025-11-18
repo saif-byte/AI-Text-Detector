@@ -52,6 +52,7 @@
       <canvas id="Matrix"></canvas>
       <div class="overlay" id="overlay">Prediction will appear here</div>
     </section>
+    <script src="../static/utils.js"></script>
 
     <!-- jQuery AJAX form submission -->
     <script>
@@ -94,12 +95,12 @@
                 combinedProb !== undefined
                   ? (combinedProb * 100).toFixed(2)
                   : "No result";
-
+              finalCombinedProb = get_combined_result(text).toFixed(2);
               setTimeout(function () {
                 $(".overlay").html(
                   `${
                     model.charAt(0).toUpperCase() + model.slice(1)
-                  } Probability: ${combinedProb}%`
+                  } Probability: ${finalCombinedProb}%`
                 );
 
                 $("#loader").hide();
